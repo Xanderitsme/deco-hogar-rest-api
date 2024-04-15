@@ -1,16 +1,18 @@
 import { randomUUID } from 'node:crypto'
-import employeesData from '../../mocks/employees.json'
+import employeesData from '../../mocks/employees_new.json'
 import { type Comment } from '../../types'
-import { type EmployeeToSortNumber, type EmployeeToSortString } from '../EmployeeEnums'
 import {
   type CreateParams,
   type DeleteParams,
+  type EmployeeSortDate,
+  type EmployeeSortNumber,
+  type EmployeeSortString,
   type EmployeeWithId,
   type GetByIdParams,
   type GetEmployeesParams,
   type UpdateParams
 } from '../EmployeeTypes'
-import { isEmployeeToSortNumberValue, isEmployeeToSortStringValue, sortEmployeesByNumberProperty, sortEmployeesByStringProperty } from '../utils'
+import { isEmployeeToSortDateValue, isEmployeeToSortNumberValue, isEmployeeToSortStringValue, sortEmployeesByDateProperty, sortEmployeesByNumberProperty, sortEmployeesByStringProperty } from '../utils'
 
 export const employees = employeesData as EmployeeWithId[]
 const comment: Comment = ''
@@ -24,11 +26,15 @@ export class EmployeeModel {
 
     const sortedEmployees = (() => {
       if (isEmployeeToSortStringValue(sortBy)) {
-        return sortEmployeesByStringProperty(employees, sortBy as EmployeeToSortString)
+        return sortEmployeesByStringProperty(employees, sortBy as EmployeeSortString)
       }
 
       if (isEmployeeToSortNumberValue(sortBy)) {
-        return sortEmployeesByNumberProperty(employees, sortBy as EmployeeToSortNumber)
+        return sortEmployeesByNumberProperty(employees, sortBy as EmployeeSortNumber)
+      }
+
+      if (isEmployeeToSortDateValue(sortBy)) {
+        return sortEmployeesByDateProperty(employees, sortBy as EmployeeSortDate)
       }
 
       return employees
