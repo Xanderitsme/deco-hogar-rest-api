@@ -1,19 +1,40 @@
 import { randomUUID } from 'node:crypto'
-import employeesData from '../../services/employees.json'
+import employeesData from '../../mocks/employees.json'
+import { type Comment } from '../../types'
+import { type EmployeeToSortNumber, type EmployeeToSortString } from '../EmployeeEnums'
 import {
-  type EmployeeWithIdType,
-  type GetEmployeesParams,
-  type GetByIdParams,
   type CreateParams,
   type DeleteParams,
+  type EmployeeWithId,
+  type GetByIdParams,
+  type GetEmployeesParams,
   type UpdateParams
 } from '../EmployeeTypes'
+import { isEmployeeToSortNumberValue, isEmployeeToSortStringValue, sortEmployeesByNumberProperty, sortEmployeesByStringProperty } from '../utils'
 
-const employees = employeesData as EmployeeWithIdType[]
+export const employees = employeesData as EmployeeWithId[]
+const comment: Comment = ''
+console.log(comment)
 
 export class EmployeeModel {
-  static getEmployees = async ({ limit = 10 }: GetEmployeesParams) => {
-    return employees.slice(0, limit)
+  static getEmployees = async ({ limit = 10, sort_by: sortBy }: GetEmployeesParams) => {
+    if (sortBy === undefined) {
+      return employees.slice(0, limit)
+    }
+
+    const sortedEmployees = (() => {
+      if (isEmployeeToSortStringValue(sortBy)) {
+        return sortEmployeesByStringProperty(employees, sortBy as EmployeeToSortString)
+      }
+
+      if (isEmployeeToSortNumberValue(sortBy)) {
+        return sortEmployeesByNumberProperty(employees, sortBy as EmployeeToSortNumber)
+      }
+
+      return employees
+    })()
+
+    return sortedEmployees.slice(0, limit)
   }
 
   static getById = async ({ id }: GetByIdParams) => {

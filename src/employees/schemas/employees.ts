@@ -1,20 +1,34 @@
-import z from 'zod'
+import { z } from 'zod'
+import { EmployeeToSortValue } from '../EmployeeEnums'
+import { isDateFormated, isEmployeeToSortValue } from '../utils'
 
-const employeeSchema = z.object({
-  name: z.string(),
-  lastName: z.string(),
+export const EmployeeSchema = z.object({
+  name: z.string().min(2).max(50),
+  lastName: z.string().min(2).max(50),
   dni: z.string().length(8),
   phone: z.string().length(9),
-  email: z.string().email(),
-  hiringDate: z.date().min(new Date('2000-01-01'), { message: 'Too old' }),
-  salary: z.number().min(1100),
-  positionId: z.string()
+  email: z.string().email().max(50),
+  hiringDate: z.string().refine(val => isDateFormated(val), {
+    message: 'Missing or invalid hiring date value, hiringDate must be formateed like dd/mm/yyyy'
+  }).transform(val => val.replaceAll(/[- .]/g, '/')),
+  salary: z.number().min(1200),
+  positionId: z.string().min(1)
 })
 
-export const validateEmployee = (object: unknown) => {
-  return employeeSchema.safeParse(object)
-}
+// export const sorting = {
+//   NAME: 'name',
+//   LAST_NAME: 'lastName',
+//   EMAIL: 'email'
+// } as const
 
-export const validatePartialEmployee = (object: unknown) => {
-  return employeeSchema.partial().safeParse(object)
-}
+// export type sortType = typeof sorting[keyof typeof sorting]
+
+export const GetEmployeeQuerySchema = z.object({
+  limit: z.coerce.number().min(1).max(100).optional(),
+  sort_by: z.string().refine(val => isEmployeeToSortValue(val), {
+    message: `sort_by query only accepts one of these values: ${Object.values(EmployeeToSortValue).join(', ')}`
+  }).optional()
+  // sort: custom<sortType>(val => {
+  //   return typeof val === 'string' ? isEmployeeToSortValue(val) : false
+  // }).optional()
+})

@@ -1,37 +1,46 @@
-export interface EmployeeType {
-  name: string
-  lastName: string
-  dni: string
-  phone: string
-  email: string
-  hiringDate: string
-  salary: number
-  positionId: string
+import { type z } from 'zod'
+import { type EmployeeSchema, type GetEmployeeQuerySchema } from './schemas/employees'
+
+// export interface Employee {
+//   name: string
+//   lastName: string
+//   dni: string
+//   phone: string
+//   email: string
+//   hiringDate: string
+//   salary: number
+//   positionId: string
+// }
+
+export type Employee = z.infer<typeof EmployeeSchema>
+
+export type EmployeeId = string /* ${string}-${string}-${string}-${string}-${string} */
+
+export interface EmployeeWithId extends Employee {
+  id: EmployeeId
 }
 
-export type EmployeeIdType = string /* ${string}-${string}-${string}-${string}-${string} */
+// interface GetEmployeesParams {
+//   limit?: number
+//   sort_by?: string
+//   // sort?: sortType
+// }
 
-export interface EmployeeWithIdType extends EmployeeType {
-  id: EmployeeIdType
+export type GetEmployeesParams = z.infer<typeof GetEmployeeQuerySchema>
+
+export interface GetByIdParams {
+  id: EmployeeId
 }
 
-interface GetEmployeesParams {
-  limit?: number
+export interface CreateParams {
+  input: Employee
 }
 
-interface GetByIdParams {
-  id: EmployeeIdType
+export interface DeleteParams {
+  id: EmployeeId
 }
 
-interface CreateParams {
-  input: EmployeeType
-}
-
-interface DeleteParams {
-  id: EmployeeIdType
-}
-
-interface UpdateParams {
-  id: EmployeeIdType
-  input: Partial<EmployeeWithIdType>
+export interface UpdateParams {
+  id: EmployeeId
+  input: Partial<EmployeeWithId>
 }

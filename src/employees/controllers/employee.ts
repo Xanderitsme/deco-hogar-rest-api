@@ -1,15 +1,20 @@
-import { EmployeeModel } from '../models/employee'
 import { type RequestHandler } from 'express'
-import { validateEmployee, validatePartialEmployee } from '../schemas/employees'
-import { type EmployeeType } from '../EmployeeTypes'
+import { type Employee } from '../EmployeeTypes'
+import { EmployeeModel } from '../models/EmployeeModel'
+import { validateEmployee, validateGetEmployeeQuery, validatePartialEmployee } from '../utils'
 
 export class EmployeeController {
   static getEmployees: RequestHandler = async (req, res) => {
-    const { limit } = req.query
+    const data = req.query
+    const result = validateGetEmployeeQuery(data)
 
-    const limitEmployees = isNaN(Number(limit)) ? undefined : Number(limit)
+    if (!result.success) {
+      return res.status(400).json({
+        message: JSON.parse(result.error.message)
+      })
+    }
 
-    const employees = await EmployeeModel.getEmployees({ limit: limitEmployees })
+    const employees = await EmployeeModel.getEmployees(result.data)
 
     if (employees.length === 0) return res.status(404).json({ message: 'Employees not found' })
     return res.json(employees)
@@ -24,23 +29,18 @@ export class EmployeeController {
   }
 
   static create: RequestHandler = async (req, res) => {
-    const data = req.body as EmployeeType
-    const result = validateEmployee({ ...data, hiringDate: new Date(data?.hiringDate) })
+    const data = req.body as Employee
+    const result = validateEmployee(data)
 
     if (!result.success) {
-      return res.status(404).json({
+      return res.status(400).json({
         error: JSON.parse(result.error.message)
       })
     }
 
-    const input = {
-      ...result.data,
-      hiringDate: result.data.hiringDate.toLocaleDateString('en-GB', { dateStyle: 'short' })
-    }
+    const newEmployee = await EmployeeModel.create({ input: result.data })
 
-    const newEmployee = await EmployeeModel.create({ input })
-
-    if (newEmployee === undefined) return res.status(404).json({ message: 'Employee not created' })
+    if (newEmployee === undefined) return res.status(502).json({ message: 'Employee not created' })
     return res.status(201).json(newEmployee)
   }
 
@@ -54,28 +54,17 @@ export class EmployeeController {
   }
 
   static update: RequestHandler = async (req, res) => {
-    const data = req.body as Partial<EmployeeType>
-    const inputData = data?.hiringDate !== undefined ? { ...data, hiringDate: new Date(data?.hiringDate) } : data
-    const result = validatePartialEmployee(inputData)
+    const data = req.body
+    const result = validatePartialEmployee(data)
 
     if (!result.success) {
-      return res.status(404).json({
+      return res.status(400).json({
         error: JSON.parse(result.error.message)
       })
     }
 
-    const input = result.data.hiringDate !== undefined
-      ? {
-          ...result.data,
-          hiringDate: result.data.hiringDate.toLocaleDateString('es-PE', { dateStyle: 'short' })
-        }
-      : {
-          ...result.data,
-          hiringDate: undefined
-        }
-
     const { id } = req.params
-    const updatedEmployee = await EmployeeModel.update({ id, input })
+    const updatedEmployee = await EmployeeModel.update({ id, input: result.data })
 
     if (updatedEmployee === false) return res.status(404).json({ message: 'Employee not found' })
     return res.status(200).json(updatedEmployee)
