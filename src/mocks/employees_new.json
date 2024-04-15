@@ -1,0 +1,189 @@
+[
+  {
+    "id": "cd372bd4-4368-43f9-b20d-83804ee63344",
+    "name": "Cuenta de ",
+    "lastName": "administrador",
+    "dni": "59304390",
+    "phone": "998559064",
+    "email": "admin@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 3500,
+    "positionId": "1"
+  },
+  {
+    "id": "5ecacd51-5cf1-4031-9146-a1753a2f17c5",
+    "name": "Juan José",
+    "lastName": "López Candia",
+    "dni": "45314037",
+    "phone": "911741154",
+    "email": "juanlopez@dominio.com",
+    "hiringDate": "2023-10-15",
+    "salary": 2200,
+    "positionId": "2"
+  },
+  {
+    "id": "91d2c71d-0710-42c7-8841-7630d7d839c5",
+    "name": "Ana María",
+    "lastName": "Pérez Estrada",
+    "dni": "35418633",
+    "phone": "982594329",
+    "email": "anaperez@dominio.com",
+    "hiringDate": "2023-11-16",
+    "salary": 2200,
+    "positionId": "3"
+  },
+  {
+    "id": "43bf040b-0fab-491b-8b3b-a56364283eff",
+    "name": "María Laura",
+    "lastName": "García Rodríguez",
+    "dni": "61808103",
+    "phone": "831435229",
+    "email": "mariagarcia@dominio.com",
+    "hiringDate": "2023-10-14",
+    "salary": 2500,
+    "positionId": "4"
+  },
+  {
+    "id": "c7e61910-5727-44fe-90ae-283e093c9311",
+    "name": "Pedro Alejandro",
+    "lastName": "Martínez Ramírez",
+    "dni": "43559749",
+    "phone": "974170633",
+    "email": "pedromartinez@dominio.com",
+    "hiringDate": "2023-10-17",
+    "salary": 2000,
+    "positionId": "5"
+  },
+  {
+    "id": "9a95fd4e-c09b-4c4d-978d-61bcbe592cde",
+    "name": "Carlos Jorge",
+    "lastName": "Gómez Sánchez",
+    "dni": "65230548",
+    "phone": "906004775",
+    "email": "carlosgomez@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 2000,
+    "positionId": "5"
+  },
+  {
+    "id": "dbe11e4c-071d-4f87-b7a9-0d8bf9b7e9bf",
+    "name": "David Roberto",
+    "lastName": "Hernández Fernández",
+    "dni": "78991149",
+    "phone": "948573785",
+    "email": "davidhernandez@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 2000,
+    "positionId": "5"
+  },
+  {
+    "id": "e5fff138-2879-40b8-aa53-616d5e85d9c7",
+    "name": "Laura",
+    "lastName": "González Martínez",
+    "dni": "32690574",
+    "phone": "678245136",
+    "email": "lauragonzalez@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 2100,
+    "positionId": "2"
+  },
+  {
+    "id": "e3036e9e-7c68-4e54-8cad-c4a6bf18990c",
+    "name": "Santiago",
+    "lastName": "Díaz Herrera",
+    "dni": "75431028",
+    "phone": "725496318",
+    "email": "santiagodiaz@dominio.com",
+    "hiringDate": "2023-10-18",
+    "salary": 2300,
+    "positionId": "3"
+  },
+  {
+    "id": "7bec3a25-c318-4e1a-8c06-1735ba7afdf7",
+    "name": "Elena",
+    "lastName": "Sánchez Gutiérrez",
+    "dni": "47182906",
+    "phone": "843709625",
+    "email": "elenasanchez@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 2400,
+    "positionId": "4"
+  },
+  {
+    "id": "0ff75307-013a-48ac-8dfa-cb694e5e0a55",
+    "name": "Roberto",
+    "lastName": "Alvarez Pérez",
+    "dni": "59186340",
+    "phone": "612485739",
+    "email": "robertoalvarez@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 2200,
+    "positionId": "5"
+  },
+  {
+    "id": "e76cc677-4e42-47a5-9337-8821e0dacf70",
+    "name": "Marta",
+    "lastName": "Jiménez Ruiz",
+    "dni": "36742981",
+    "phone": "736598142",
+    "email": "martajimenez@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 2000,
+    "positionId": "5"
+  },
+  {
+    "id": "54713d03-04fb-496c-bfcb-6fbee9921769",
+    "name": "Alberto",
+    "lastName": "Romero Castro",
+    "dni": "51874069",
+    "phone": "693214807",
+    "email": "albertoromero@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 2200,
+    "positionId": "2"
+  },
+  {
+    "id": "72368adf-1388-45a0-9aac-d53868191628",
+    "name": "Luisa",
+    "lastName": "Fernández Sánchez",
+    "dni": "62384105",
+    "phone": "724986301",
+    "email": "luisafernandez@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 2300,
+    "positionId": "3"
+  },
+  {
+    "id": "cbc046f9-ace0-4a48-8901-d92c2e62d1b6",
+    "name": "Dai",
+    "lastName": "Moreno García",
+    "dni": "45837091",
+    "phone": "795432187",
+    "email": "daimoreno@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 2400,
+    "positionId": "4"
+  },
+  {
+    "id": "e74049bb-5b8d-4f30-a6d5-96b44c405b8c",
+    "name": "Natalia",
+    "lastName": "Santos López",
+    "dni": "57891340",
+    "phone": "624875931",
+    "email": "nataliasantos@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 2000,
+    "positionId": "5"
+  },
+  {
+    "id": "a6a610f1-47e4-4394-bfd6-5615f0da910a",
+    "name": "Pablo",
+    "lastName": "Torres Martín",
+    "dni": "70184932",
+    "phone": "837591462",
+    "email": "pablotorres@dominio.com",
+    "hiringDate": "2023-10-16",
+    "salary": 2200,
+    "positionId": "2"
+  }
+]
