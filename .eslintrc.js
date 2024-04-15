@@ -12,6 +12,7 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-extraneous-class': 'off'
+    '@typescript-eslint/no-extraneous-class': 'off',
+    '@typescript-eslint/method-signature-style': 'off'
   }
 }
