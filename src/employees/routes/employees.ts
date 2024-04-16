@@ -1,10 +1,17 @@
 import express from 'express'
+import { type EmployeeModelType } from '../EmployeeTypes'
 import { EmployeeController } from '../controllers/employee'
 
-export const employeesRouter = express.Router()
+export const createEmployeeRouter = ({ EmployeeModel }: { EmployeeModel: EmployeeModelType }) => {
+  const employeeRouter = express.Router()
 
-employeesRouter.get('/', EmployeeController.getEmployees)
-employeesRouter.get('/:id', EmployeeController.getById)
-employeesRouter.post('/', EmployeeController.create)
-employeesRouter.delete('/:id', EmployeeController.delete)
-employeesRouter.patch('/:id', EmployeeController.update)
+  const employeeController = new EmployeeController(EmployeeModel)
+
+  employeeRouter.get('/', employeeController.getEmployees)
+  employeeRouter.get('/:id', employeeController.getById)
+  employeeRouter.post('/', employeeController.create)
+  employeeRouter.delete('/:id', employeeController.delete)
+  employeeRouter.patch('/:id', employeeController.update)
+
+  return employeeRouter
+}
