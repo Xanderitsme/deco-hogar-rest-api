@@ -29,6 +29,23 @@ export interface UpdateParams {
   input: Partial<EmployeeWithId>
 }
 
+export interface EmployeeModelType {
+  getAll(params: GetEmployeesParams): Promise<EmployeeWithId[]>
+  getById({ id }: GetByIdParams): Promise<EmployeeWithId | undefined>
+  create({ input }: CreateParams): Promise<EmployeeWithId>
+  delete({ id }: DeleteParams): Promise<boolean>
+  update({ id, input }: UpdateParams): Promise<false | EmployeeWithId>
+}
+
+// export type EmployeeModelType = GenericModelType<
+// EmployeeWithId,
+// GetEmployeesParams,
+// GetByIdParams,
+// CreateParams,
+// DeleteParams,
+// UpdateParams
+// >
+
 export type EmployeeSortString = typeof EmployeeSortStringConst[keyof typeof EmployeeSortStringConst]
 
 export type EmployeeSortNumber = typeof EmployeeSortNumberConst[keyof typeof EmployeeSortNumberConst]
