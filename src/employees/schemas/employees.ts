@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { isDateFormated } from '../../utils'
+import { isFormattedDate } from '../../utils'
 import { EmployeeSortDateConst, EmployeeSortNumberConst, EmployeeSortStringConst } from '../EmployeeConstants'
 import { type EmployeeSort } from '../EmployeeTypes'
 import { isEmployeeToSortValue } from '../utils'
@@ -10,8 +10,8 @@ export const EmployeeSchema = z.object({
   dni: z.string().length(8),
   phone: z.string().length(9),
   email: z.string().email().max(50),
-  hiringDate: z.string().refine(val => isDateFormated(val), {
-    message: 'Missing or invalid hiring date value, hiringDate must be formateed like dd/mm/yyyy'
+  hiringDate: z.string().refine(val => isFormattedDate(val), {
+    message: 'Missing or invalid hiring date value, hiringDate must be in <yyyy/mm/dd> format'
   }).transform(val => val.replaceAll(/[- .]/g, '/')),
   salary: z.number().min(1200),
   positionId: z.string().min(1)
