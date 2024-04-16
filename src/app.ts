@@ -1,7 +1,7 @@
 import express from 'express'
 import { createServer } from 'node:http'
 import { corsMiddleware } from './middlewares/cors'
-import { createApiRouter } from './routes/api'
+import { createRouter } from './routes'
 import { type Models } from './types'
 
 export const createApp = ({ models }: { models: Models }) => {
@@ -12,11 +12,7 @@ export const createApp = ({ models }: { models: Models }) => {
   app.use(corsMiddleware())
   app.disable('x-powered-by')
 
-  app.use('/api', createApiRouter({ models }))
-
-  app.use((_req, res) => {
-    return res.status(404).contentType('text/plain; charset=utf-8').send('Not Found')
-  })
+  app.use(createRouter({ models }))
 
   const port = process.env.PORT ?? 3000
 
