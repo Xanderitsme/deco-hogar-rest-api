@@ -1,6 +1,6 @@
 import { EmployeeSortDateConst, EmployeeSortNumberConst, EmployeeSortStringConst } from './EmployeeConstants'
 import { type EmployeeSortDate, type EmployeeSortNumber, type EmployeeSortString, type EmployeeWithId } from './EmployeeTypes'
-import { EmployeeSchema, GetEmployeeQuerySchema } from './schemas/employees'
+import { EmployeeSchema, GetEmployeeQuerySchema } from './schemas'
 
 export const validateEmployee = (object: unknown) => {
   return EmployeeSchema.safeParse(object)
