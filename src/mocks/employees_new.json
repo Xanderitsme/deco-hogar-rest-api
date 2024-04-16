@@ -6,7 +6,7 @@
     "dni": "59304390",
     "phone": "998559064",
     "email": "admin@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 3500,
     "positionId": "1"
   },
@@ -17,7 +17,7 @@
     "dni": "45314037",
     "phone": "911741154",
     "email": "juanlopez@dominio.com",
-    "hiringDate": "2023-10-15",
+    "hiringDate": "2023/10/15",
     "salary": 2200,
     "positionId": "2"
   },
@@ -28,7 +28,7 @@
     "dni": "35418633",
     "phone": "982594329",
     "email": "anaperez@dominio.com",
-    "hiringDate": "2023-11-16",
+    "hiringDate": "2023/11/16",
     "salary": 2200,
     "positionId": "3"
   },
@@ -39,7 +39,7 @@
     "dni": "61808103",
     "phone": "831435229",
     "email": "mariagarcia@dominio.com",
-    "hiringDate": "2023-10-14",
+    "hiringDate": "2023/10/14",
     "salary": 2500,
     "positionId": "4"
   },
@@ -50,7 +50,7 @@
     "dni": "43559749",
     "phone": "974170633",
     "email": "pedromartinez@dominio.com",
-    "hiringDate": "2023-10-17",
+    "hiringDate": "2023/10/17",
     "salary": 2000,
     "positionId": "5"
   },
@@ -61,7 +61,7 @@
     "dni": "65230548",
     "phone": "906004775",
     "email": "carlosgomez@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 2000,
     "positionId": "5"
   },
@@ -72,7 +72,7 @@
     "dni": "78991149",
     "phone": "948573785",
     "email": "davidhernandez@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 2000,
     "positionId": "5"
   },
@@ -83,7 +83,7 @@
     "dni": "32690574",
     "phone": "678245136",
     "email": "lauragonzalez@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 2100,
     "positionId": "2"
   },
@@ -94,7 +94,7 @@
     "dni": "75431028",
     "phone": "725496318",
     "email": "santiagodiaz@dominio.com",
-    "hiringDate": "2023-10-18",
+    "hiringDate": "2023/10/18",
     "salary": 2300,
     "positionId": "3"
   },
@@ -105,7 +105,7 @@
     "dni": "47182906",
     "phone": "843709625",
     "email": "elenasanchez@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 2400,
     "positionId": "4"
   },
@@ -116,7 +116,7 @@
     "dni": "59186340",
     "phone": "612485739",
     "email": "robertoalvarez@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 2200,
     "positionId": "5"
   },
@@ -127,7 +127,7 @@
     "dni": "36742981",
     "phone": "736598142",
     "email": "martajimenez@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 2000,
     "positionId": "5"
   },
@@ -138,7 +138,7 @@
     "dni": "51874069",
     "phone": "693214807",
     "email": "albertoromero@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 2200,
     "positionId": "2"
   },
@@ -149,7 +149,7 @@
     "dni": "62384105",
     "phone": "724986301",
     "email": "luisafernandez@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 2300,
     "positionId": "3"
   },
@@ -160,7 +160,7 @@
     "dni": "45837091",
     "phone": "795432187",
     "email": "daimoreno@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 2400,
     "positionId": "4"
   },
@@ -171,7 +171,7 @@
     "dni": "57891340",
     "phone": "624875931",
     "email": "nataliasantos@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 2000,
     "positionId": "5"
   },
@@ -182,7 +182,7 @@
     "dni": "70184932",
     "phone": "837591462",
     "email": "pablotorres@dominio.com",
-    "hiringDate": "2023-10-16",
+    "hiringDate": "2023/10/16",
     "salary": 2200,
     "positionId": "2"
   }
