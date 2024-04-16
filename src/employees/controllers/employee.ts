@@ -1,10 +1,11 @@
 import { type RequestHandler } from 'express'
-import { type Employee } from '../EmployeeTypes'
-import { EmployeeModel } from '../models/EmployeeModel'
+import { type Employee, type EmployeeModelType } from '../EmployeeTypes'
 import { validateEmployee, validateGetEmployeeQuery, validatePartialEmployee } from '../utils'
 
 export class EmployeeController {
-  static getEmployees: RequestHandler = async (req, res) => {
+  constructor (private readonly EmployeeModel: EmployeeModelType) {}
+
+  getEmployees: RequestHandler = async (req, res) => {
     const data = req.query
     const result = validateGetEmployeeQuery(data)
 
@@ -14,21 +15,21 @@ export class EmployeeController {
       })
     }
 
-    const employees = await EmployeeModel.getEmployees(result.data)
+    const employees = await this.EmployeeModel.getAll(result.data)
 
     if (employees.length === 0) return res.status(404).json({ message: 'Employees not found' })
     return res.json(employees)
   }
 
-  static getById: RequestHandler = async (req, res) => {
+  getById: RequestHandler = async (req, res) => {
     const { id } = req.params
-    const employee = await EmployeeModel.getById({ id })
+    const employee = await this.EmployeeModel.getById({ id })
 
     if (employee === undefined) return res.status(404).json({ message: 'Employee not found' })
     return res.json(employee)
   }
 
-  static create: RequestHandler = async (req, res) => {
+  create: RequestHandler = async (req, res) => {
     const data = req.body as Employee
     const result = validateEmployee(data)
 
@@ -38,22 +39,22 @@ export class EmployeeController {
       })
     }
 
-    const newEmployee = await EmployeeModel.create({ input: result.data })
+    const newEmployee = await this.EmployeeModel.create({ input: result.data })
 
     if (newEmployee === undefined) return res.status(502).json({ message: 'Employee not created' })
     return res.status(201).json(newEmployee)
   }
 
-  static delete: RequestHandler = async (req, res) => {
+  delete: RequestHandler = async (req, res) => {
     const { id } = req.params
 
-    const isEmployeeDeleted = await EmployeeModel.delete({ id })
+    const isEmployeeDeleted = await this.EmployeeModel.delete({ id })
 
     if (!isEmployeeDeleted) return res.status(404).json({ message: 'Employee not found' })
     return res.status(200).json({ message: 'Employee deleted' })
   }
 
-  static update: RequestHandler = async (req, res) => {
+  update: RequestHandler = async (req, res) => {
     const data = req.body
     const result = validatePartialEmployee(data)
 
@@ -64,7 +65,7 @@ export class EmployeeController {
     }
 
     const { id } = req.params
-    const updatedEmployee = await EmployeeModel.update({ id, input: result.data })
+    const updatedEmployee = await this.EmployeeModel.update({ id, input: result.data })
 
     if (updatedEmployee === false) return res.status(404).json({ message: 'Employee not found' })
     return res.status(200).json(updatedEmployee)
