@@ -1,6 +1,11 @@
 import express from 'express'
-import { employeesRouter } from '../employees/routes/employees'
+import { createEmployeeRouter } from '../employees/routes/employees'
+import { type Models } from '../types'
 
-export const apiRouter = express.Router()
+export const createApiRouter = ({ models }: { models: Models }) => {
+  const apiRouter = express.Router()
 
-apiRouter.use('/employees', employeesRouter)
+  apiRouter.use('/employees', createEmployeeRouter({ EmployeeModel: models.EmployeeModel }))
+
+  return apiRouter
+}
