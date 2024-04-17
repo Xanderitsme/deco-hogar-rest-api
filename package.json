@@ -1,7 +1,6 @@
 {
   "name": "deco-hogar-rest-api",
   "version": "1.0.0",
-  "main": "build/app.js",
   "scripts": {
     "dev:local": "ts-node-dev ./src/server/localFileSystem.ts",
     "tsc": "tsc",
@@ -21,6 +20,9 @@
   },
   "homepage": "https://github.com/Xanderitsme/deco-hogar-rest-api#readme",
   "description": "Simple rest api created in nodejs using typescript",
+  "engines": {
+    "node": ">=18.20.2"
+  },
   "devDependencies": {
     "@types/cors": "2.8.17",
     "@types/express": "4.17.21",
@@ -35,6 +37,7 @@
   },
   "dependencies": {
     "cors": "2.8.5",
+    "dotenv": "16.4.5",
     "express": "4.19.2",
     "zod": "3.22.4"
   }
