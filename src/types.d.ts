@@ -1,4 +1,4 @@
-import { type localModels } from './server/server-with-local'
+import { type localModels } from './server/localFileSystem'
 
 declare global {
   interface Array<T> {
