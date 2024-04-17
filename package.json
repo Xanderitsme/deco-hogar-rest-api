@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "build/app.js",
   "scripts": {
-    "dev:local": "ts-node-dev ./src/server/server-with-local.ts",
+    "dev:local": "ts-node-dev ./src/server/localFileSystem.ts",
     "tsc": "tsc",
     "start": "node build/app.js"
   },
