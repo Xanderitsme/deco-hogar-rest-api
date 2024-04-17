@@ -1,16 +1,26 @@
 {
   "name": "deco-hogar-rest-api",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "build/app.js",
   "scripts": {
     "dev:local": "ts-node-dev ./src/server/server-with-local.ts",
     "tsc": "tsc",
     "start": "node build/app.js"
   },
   "author": "Xanderitsme",
-  "license": "ISC",
-  "keywords": [],
-  "description": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xanderitsme/deco-hogar-rest-api"
+  },
+  "keywords": [
+    "api-rest"
+  ],
+  "bugs": {
+    "url": "https://github.com/Xanderitsme/deco-hogar-rest-api/issues"
+  },
+  "homepage": "https://github.com/Xanderitsme/deco-hogar-rest-api#readme",
+  "description": "Simple rest api created in nodejs using typescript",
   "devDependencies": {
     "@types/cors": "2.8.17",
     "@types/express": "4.17.21",
