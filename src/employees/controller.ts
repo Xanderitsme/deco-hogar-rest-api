@@ -1,11 +1,11 @@
-import { type Request, type Response } from 'express'
+import { type RequestHandler } from 'express'
 import { type Employee, type EmployeeModelType } from './EmployeeTypes'
 import { validateEmployee, validateGetEmployeeQuery, validatePartialEmployee } from './utils'
 
 export class EmployeeController {
   constructor (private readonly EmployeeModel: EmployeeModelType) {}
 
-  getEmployees = async (req: Request, res: Response) => {
+  getEmployees: RequestHandler = async (req, res) => {
     const data = req.query
     const result = validateGetEmployeeQuery(data)
 
@@ -21,7 +21,7 @@ export class EmployeeController {
     return res.json(employees)
   }
 
-  getById = async (req: Request, res: Response) => {
+  getById: RequestHandler = async (req, res) => {
     const { id } = req.params
     const employee = await this.EmployeeModel.getById({ id })
 
@@ -29,7 +29,7 @@ export class EmployeeController {
     return res.json(employee)
   }
 
-  create = async (req: Request, res: Response) => {
+  create: RequestHandler = async (req, res) => {
     const data = req.body as Employee
     const result = validateEmployee(data)
 
@@ -45,7 +45,7 @@ export class EmployeeController {
     return res.status(201).json(newEmployee)
   }
 
-  delete = async (req: Request, res: Response) => {
+  delete: RequestHandler = async (req, res) => {
     const { id } = req.params
 
     const isEmployeeDeleted = await this.EmployeeModel.delete({ id })
@@ -54,7 +54,7 @@ export class EmployeeController {
     return res.status(200).json({ message: 'Employee deleted' })
   }
 
-  update = async (req: Request, res: Response) => {
+  update: RequestHandler = async (req, res) => {
     const data = req.body
     const result = validatePartialEmployee(data)
 
