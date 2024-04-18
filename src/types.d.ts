@@ -1,12 +1,10 @@
-import { type localModels } from './server/localFileSystem'
-
 declare global {
   interface Array<T> {
     toSorted(compareFn?: ((a: T, b: T) => number) | undefined): T[]
   }
 }
 
-export type Models = typeof localModels
+export type Comment = string
 
 // export interface GenericModelType<
 //   T,

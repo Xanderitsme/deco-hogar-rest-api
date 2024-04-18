@@ -2,7 +2,7 @@
   "name": "deco-hogar-rest-api",
   "version": "1.0.0",
   "scripts": {
-    "dev:local": "ts-node-dev ./src/server/localFileSystem.ts",
+    "dev": "ts-node-dev ./src/app.ts",
     "tsc": "tsc",
     "start": "node build/app.js"
   },
@@ -38,6 +38,7 @@
   "dependencies": {
     "cors": "2.8.5",
     "dotenv": "16.4.5",
+    "env-var": "7.4.1",
     "express": "4.19.2",
     "zod": "3.22.4"
   }

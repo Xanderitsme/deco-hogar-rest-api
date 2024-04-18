@@ -1,11 +1,13 @@
 import { Router } from 'express'
-import { type EmployeeModelType } from './types'
 import { EmployeeController } from './controller'
+import { EmployeeModel as localFileSystemModel } from './models/localFileSystem'
 
-export const createEmployeeRouter = ({ EmployeeModel }: { EmployeeModel: EmployeeModelType }) => {
+export const createEmployeeRouter = () => {
   const employeeRouter = Router()
 
-  const employeeController = new EmployeeController(EmployeeModel)
+  const employeeController = (() => {
+    return new EmployeeController(localFileSystemModel)
+  })()
 
   employeeRouter.get('/', employeeController.getEmployees)
   employeeRouter.get('/:id', employeeController.getById)
