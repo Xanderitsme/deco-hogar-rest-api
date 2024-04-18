@@ -1,5 +1,5 @@
 import { createApp } from '../app'
-import { EmployeeModel } from '../employees/models/localFileSystem'
+import { EmployeeModel } from '../entities/employees/models/localFileSystem'
 
 export const localModels = {
   EmployeeModel

@@ -1,5 +1,5 @@
 import { type z } from 'zod'
-import { type EmployeeSortDateConst, type EmployeeSortNumberConst, type EmployeeSortStringConst } from './EmployeeConstants'
+import { type EmployeeSortDateConst, type EmployeeSortNumberConst, type EmployeeSortStringConst } from './constants'
 import { type EmployeeSchema, type GetEmployeeQuerySchema } from './schemas'
 
 export type Employee = z.infer<typeof EmployeeSchema>

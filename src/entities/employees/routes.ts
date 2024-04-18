@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { type EmployeeModelType } from './EmployeeTypes'
+import { type EmployeeModelType } from './types'
 import { EmployeeController } from './controller'
 
 export const createEmployeeRouter = ({ EmployeeModel }: { EmployeeModel: EmployeeModelType }) => {

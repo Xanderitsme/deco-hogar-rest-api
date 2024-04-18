@@ -1,5 +1,5 @@
 import { type RequestHandler } from 'express'
-import { type Employee, type EmployeeModelType } from './EmployeeTypes'
+import { type Employee, type EmployeeModelType } from './types'
 import { validateEmployee, validateGetEmployeeQuery, validatePartialEmployee } from './utils'
 
 export class EmployeeController {

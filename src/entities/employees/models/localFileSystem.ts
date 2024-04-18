@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto'
-import employeesData from '../../mocks/employees_new.json'
+import employeesData from '../../../mocks/employees_new.json'
 import {
   type CreateParams,
   type DeleteParams,
@@ -10,7 +10,7 @@ import {
   type GetByIdParams,
   type GetEmployeesParams,
   type UpdateParams
-} from '../EmployeeTypes'
+} from '../types'
 import {
   isEmployeeToSortDateValue,
   isEmployeeToSortNumberValue,
