@@ -1,15 +1,15 @@
 import { Router } from 'express'
 import { EmployeeController } from './controller'
-import { EmployeeModel as localFileSystemModel } from './models/localFileSystem'
+import { EmployeeModel as localStorage } from './models/localStorage'
 
 export const createEmployeeRouter = () => {
   const employeeRouter = Router()
 
   const employeeController = (() => {
-    return new EmployeeController(localFileSystemModel)
+    return new EmployeeController(localStorage)
   })()
 
-  employeeRouter.get('/', employeeController.getEmployees)
+  employeeRouter.get('/', employeeController.getAll)
   employeeRouter.get('/:id', employeeController.getById)
   employeeRouter.post('/', employeeController.create)
   employeeRouter.delete('/:id', employeeController.delete)

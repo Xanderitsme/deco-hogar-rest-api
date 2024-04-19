@@ -5,7 +5,7 @@ import { validateEmployee, validateGetEmployeeQuery, validatePartialEmployee } f
 export class EmployeeController {
   constructor (private readonly EmployeeModel: EmployeeModelType) {}
 
-  getEmployees: RequestHandler = async (req, res) => {
+  getAll: RequestHandler = async (req, res) => {
     const data = req.query
     const result = validateGetEmployeeQuery(data)
 
